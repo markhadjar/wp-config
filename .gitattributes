@@ -1,0 +1,10 @@
+* text=auto
+
+*.json text eol=lf
+*.md text eol=lf diff=markdown
+*.php text eol=lf diff=php
+
+/.editorconfig export-ignore
+/.gitattributes export-ignore
+/.github/ export-ignore
+/.gitignore export-ignore

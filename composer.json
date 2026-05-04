@@ -1,0 +1,38 @@
+{
+    "name": "markhadjar/wp-config",
+    "description": "Define WordPress constants using environment variables.",
+    "type": "library",
+    "keywords": ["configuration", "wordpress", "wp-config"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mark Hadjar",
+            "email": "hello@markhadjar.com"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/markhadjar/wp-config/issues",
+        "source": "https://github.com/markhadjar/wp-config"
+    },
+    "require": {
+        "php": "^8.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "MarkHadjar\\WpConfig\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MarkHadjar\\WpConfig\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "scripts": {
+        "check": [
+            "composer validate --strict"
+        ]
+    }
+}
