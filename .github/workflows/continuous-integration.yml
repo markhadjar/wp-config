@@ -65,9 +65,52 @@ jobs:
       - name: Run PHPStan
         run: composer analyze
 
+  code-coverage:
+    name: Code Coverage
+    needs: [coding-standards, static-analysis]
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: latest
+          coverage: pcov
+          tools: none
+
+      - name: Install dependencies
+        run: composer install --no-interaction --no-progress --prefer-dist
+
+      - name: Run PHPUnit with coverage
+        run: composer test-coverage-ci
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v6
+        with:
+          fail_ci_if_error: false
+          files: build/coverage/reports/clover.xml
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Upload test results to Codecov
+        if: ${{ !cancelled() }}
+        uses: codecov/codecov-action@v6
+        with:
+          fail_ci_if_error: false
+          files: build/logs/junit.xml
+          report_type: test_results
+          token: ${{ secrets.CODECOV_TOKEN }}
+
   unit-tests:
     name: Unit Tests
-    needs: [coding-standards, static-analysis]
+    needs: code-coverage
     runs-on: ubuntu-latest
 
     permissions:
