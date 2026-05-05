@@ -6,6 +6,14 @@ Define WordPress constants using environment variables.
 
 PHP 8.4+
 
+## Installation
+
+Install via Composer:
+
+```bash
+composer require markhadjar/wp-config
+```
+
 ## Usage
 
 Define constants with explicit values:
