@@ -15,7 +15,8 @@
         "source": "https://github.com/markhadjar/wp-config"
     },
     "require": {
-        "php": "^8.4"
+        "php": "^8.4",
+        "markhadjar/env": "^1.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.95",
