@@ -1,0 +1,22 @@
+codecov:
+  require_ci_to_pass: true
+
+comment:
+  behavior: default
+  require_changes: false
+
+coverage:
+  precision: 2
+  range: 70...100
+  round: down
+  status:
+    patch:
+      default:
+        base: auto
+        target: auto
+        threshold: 0%
+    project:
+      default:
+        base: auto
+        target: auto
+        threshold: 0%

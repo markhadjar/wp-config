@@ -47,6 +47,7 @@
         "cs-check": "php-cs-fixer fix --dry-run --diff",
         "cs-fix": "php-cs-fixer fix",
         "test": "phpunit",
+        "test-coverage-ci": "phpunit --coverage-clover build/reports/phpunit/clover.xml --log-junit build/reports/phpunit/junit.xml",
         "test-coverage-html": "phpunit --coverage-html build/reports/phpunit/html/",
         "test-unit": "phpunit --testsuite unit"
     }
